@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --font-title: var(--font-cinzel), var(--font-noto-serif-sc), serif;
+  --font-cursive: var(--font-playfair), serif;
+  --font-body: var(--font-noto-serif-sc), serif;
+
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
+  --animate-vinyl-spin: vinyl-spin 8s linear infinite;
+  --animate-breathe-glow: breathe-glow 3.5s ease-in-out infinite;
+  --animate-neon-pulse: neon-pulse 2s ease-in-out infinite;
+  --animate-butterfly-breathe: butterfly-breathe 4.8s ease-in-out infinite;
+  --animate-aurora-shift: aurora-shift 12s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(3deg);
+    }
+  }
+
+  @keyframes bounce-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes vinyl-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-fast {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes breathe-glow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.4))
+        drop-shadow(0 0 40px rgba(192, 132, 252, 0.2));
+      transform: scale(1);
+    }
+    50% {
+      filter: drop-shadow(0 0 35px rgba(167, 139, 250, 0.7))
+        drop-shadow(0 0 60px rgba(192, 132, 252, 0.4));
+      transform: scale(1.03);
+    }
+  }
+
+  @keyframes neon-pulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 5px rgba(236, 72, 153, 0.5),
+        0 0 15px rgba(192, 132, 252, 0.4),
+        inset 0 0 5px rgba(236, 72, 153, 0.1);
+    }
+    50% {
+      box-shadow:
+        0 0 10px rgba(236, 72, 153, 0.8),
+        0 0 25px rgba(192, 132, 252, 0.6),
+        inset 0 0 10px rgba(236, 72, 153, 0.2);
+    }
+  }
+
+  @keyframes butterfly-breathe {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-5px) scale(1.02);
+    }
+  }
+
+  @keyframes aurora-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top right, rgba(221, 214, 254, 0.95), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(216, 180, 254, 0.6), transparent 32%),
+    linear-gradient(135deg, #faf5ff 0%, #ede9fe 50%, #f5f3ff 100%);
+  overflow-x: hidden;
+}
+
+.font-title {
+  font-family: var(--font-title);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+  font-style: italic;
+}
+
+.butterfly-float {
+  animation: var(--animate-float);
+}
+
+.bounce-soft {
+  animation: var(--animate-bounce-soft);
+}
+
+.vinyl-spin {
+  animation: var(--animate-vinyl-spin);
+}
+
+.vinyl-spin-fast {
+  animation: spin-fast 2s linear infinite;
+}
+
+.breathe-glow {
+  animation: var(--animate-breathe-glow);
+}
+
+.neon-pulse {
+  animation: var(--animate-neon-pulse);
+}
+
+.butterfly-breathe {
+  animation: var(--animate-butterfly-breathe);
+}
+
+.aurora-panel {
+  background-size: 200% 200%;
+  animation: var(--animate-aurora-shift);
+}
+
+.editor-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.editor-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editor-scroll::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.35);
+  border-radius: 999px;
+}
+
+[class*="inspector"],
+[class*="devtools"],
+[class*="nextjs-inspector"],
+[data-nextjs-dev-tools],
+[data-nextjs-inspector],
+[data-inspector],
+[class*="__next-inspector"],
+#__nextjs-inspector,
+#nextjs-inspector,
+.nextjs-inspector,
+.next-inspector,
+.inspector-button,
+.inspector-toggle {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
